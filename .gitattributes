@@ -24,6 +24,16 @@
 *.md filter=lfs diff=lfs merge=lfs -text
 *.dwlt filter=lfs diff=lfs merge=lfs -text
 *.settings filter=lfs diff=lfs merge=lfs -text
-* !text !filter !merge !diff
+*.firebaserc filter=lfs diff=lfs merge=lfs -text
+*.dll filter=lfs diff=lfs merge=lfs -text
+/Assets/ExternalDependencyManager/Editor/LICENSE filter=lfs diff=lfs merge=lfs -text
+*.xml filter=lfs diff=lfs merge=lfs -text
+*.exe filter=lfs diff=lfs merge=lfs -text
+*.py filter=lfs diff=lfs merge=lfs -text
 *.bundle filter=lfs diff=lfs merge=lfs -text
 *.so filter=lfs diff=lfs merge=lfs -text
+*.pom filter=lfs diff=lfs merge=lfs -text
+*.srcaar filter=lfs diff=lfs merge=lfs -text
+*.a filter=lfs diff=lfs merge=lfs -text
+*.html filter=lfs diff=lfs merge=lfs -text
+* !text !filter !merge !diff

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "96402139544",
+    "firebase_url": "https://tumblingtectonics-default-rtdb.firebaseio.com",
+    "project_id": "tumblingtectonics",
+    "storage_bucket": "tumblingtectonics.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:96402139544:android:0c78c634a6bb564c0f23ed",
+        "android_client_info": {
+          "package_name": "com.a222225525.tumblingtectonics"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpBCFNjQCIj0h_8TrlVceEeWFohBulCEI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
