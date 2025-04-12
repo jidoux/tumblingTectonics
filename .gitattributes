@@ -1,3 +1,5 @@
+*.fbx filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text
 /Assets/Animations/IdleAnimation.fbx filter=lfs diff=lfs merge=lfs -text
 /Assets/Animations/RunningAnimation.fbx filter=lfs diff=lfs merge=lfs -text
 /Assets/Animations/WalkingAnimation.fbx filter=lfs diff=lfs merge=lfs -text
