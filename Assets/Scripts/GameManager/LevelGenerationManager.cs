@@ -16,6 +16,10 @@ namespace TumblingTectonics.GameManager {
         // this coin prefab has attached to it (currently at least) a script which
         // handles the coin spawning functions so
         [SerializeField] private GameObject coinPrefab;
+        // I need this since the spawn coin script is attached to the coin prefab, its maybe not ideal
+        // but I need to set its parent and thus I need something in the hierarchy to access the coinContainer
+        // gameObject.
+        [SerializeField] private GameObject coinContainer;
         [SerializeField] private int amountOfSlopesOnScreen = 7;
         // if the player runs this total distance from the last removal, we remove the oldest slope and add a new one
         [SerializeField] private float distanceToSpawnNewSlope = 100f;
@@ -68,9 +72,8 @@ namespace TumblingTectonics.GameManager {
             zToSpawnNewSlope += (slopeZ + slopeZ * (slope.transform.rotation.z / 100)) * 1.5f;
             activeSlopes.Add(slope);
 
-            Vector3 positionToSpawnCoin = slope.transform.position;
-            positionToSpawnCoin.y += 1.5f; // TODO this 3 lines, idk where htey should go, idk what im doing ya know,.
-            coinPrefab.GetComponent<CoinSpawnManager>().SpawnCoin(positionToSpawnCoin);
+            Vector3 centerPositionOfSlope = slope.transform.position;
+            coinPrefab.GetComponent<CoinSpawnManager>().SpawnCoins(centerPositionOfSlope, coinContainer);
         }
 
         private void DeleteSlope() {
