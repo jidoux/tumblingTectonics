@@ -207,7 +207,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'World Record: 0'
+  m_text: 'World Record: 11'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -893,8 +893,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followTarget: {fileID: 1862086341}
-  distanceAwayFromPlayer: 6
+  distanceAwayFromPlayer: 3.2
   verticalPlayerViewingOffset: {x: 0, y: 1}
+  verticalRotationOfCamera: -9
 --- !u!114 &820607213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1077,7 +1078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1089b14a30a4b5f4ba3a8a914cb4900b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 6
+  movementSpeed: 9
   maxDegreesToTurn: 450
   slopePrefab: {fileID: 1984755630799422820, guid: f032a10f38cb1bf4989a4ea251994854, type: 3}
   howFarPlayerCanBacktrack: 47

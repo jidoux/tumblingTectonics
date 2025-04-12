@@ -12,7 +12,7 @@ namespace TumblingTectonics.Boulder {
         [SerializeField] private GameObject boulderContainer;
 
         private void Start() {
-            Invoke(nameof(SpawnBoulder), 1);
+            Invoke(nameof(SpawnBoulder), 0.1f);
         }
 
         private void SpawnBoulder() {

@@ -16,9 +16,10 @@ namespace TumblingTectonics.Coin {
             if (collidedWith.name == "Slope(Clone)") {
                 gameObject.GetComponent<Rigidbody>().useGravity = false;
                 gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                gameObject.GetComponent<Renderer>().enabled = true;
                 // moving it up a bit
                 gameObject.transform.position = new Vector3(
-                    transform.position.x, transform.position.y + 1.5f, transform.position.z);
+                    transform.position.x, transform.position.y + 2.3f, transform.position.z);
             }
             if (collidedWith.name == "Player") {
                 Destroy(this.gameObject);
