@@ -19,7 +19,10 @@ namespace TumblingTectonics.Coin {
                 gameObject.GetComponent<Renderer>().enabled = true;
                 // moving it up a bit
                 gameObject.transform.position = new Vector3(
-                    transform.position.x, transform.position.y + 2.3f, transform.position.z);
+                    transform.position.x, transform.position.y + 2f, transform.position.z);
+                // it meant to be a random rotation but who knows i really dont know what its doing ya feel me
+                Quaternion rotationOfCoin = Quaternion.Euler(0, 0, Random.Range(0, 360));
+                gameObject.transform.rotation = rotationOfCoin;
             }
             if (collidedWith.name == "Player") {
                 Destroy(this.gameObject);

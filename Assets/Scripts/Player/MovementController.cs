@@ -35,7 +35,6 @@ namespace TumblingTectonics.Player
 
         private void Start() {
             float slopePrefabZScale = slopePrefab.transform.localScale.z;
-            Debug.Log(string.Format("slope prefab z scale: {0}", slopePrefabZScale));
             maxDistanceAwayFromCenterOnEitherSide = slopePrefabZScale / 2f;
             maxZValueSoFar = gameObject.transform.position.z;
         }

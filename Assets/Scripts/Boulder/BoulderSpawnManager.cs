@@ -24,6 +24,8 @@ namespace TumblingTectonics.Boulder {
             GameObject randomBoulder = boulderPrefabs[boulderIndexToSpawn];
             float randomBoulderSize = Mathf.Min(Random.Range(4f, 15f), Random.Range(4f, 15f));
             randomBoulder.transform.localScale = new Vector3(randomBoulderSize, randomBoulderSize, randomBoulderSize);
+            float randomMassOfBoulder = Mathf.Min(Random.Range(1f, 10000f), Random.Range(1f, 10000f), Random.Range(1f, 10000f));
+            randomBoulder.GetComponent<Rigidbody>().mass = randomMassOfBoulder;
             GameObject boulder = Instantiate<GameObject>(randomBoulder, positionToSpawnBoulder, Quaternion.identity);
             boulder.transform.SetParent(boulderContainer.transform);
             float timeToCallAgain = Mathf.Min(Random.Range(0f, maxBoulderSpawnDelay), Random.Range(0f, maxBoulderSpawnDelay));
