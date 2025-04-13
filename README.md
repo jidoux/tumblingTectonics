@@ -1,1 +1,1 @@
-it's a work in progress it'll be in a more finished state with a playable link in this readme in a couple days
+it's a work in progress still will be done within 3 weeks

@@ -22,8 +22,8 @@ namespace TumblingTectonics.GameManager {
             player.GetComponent<CharacterController>().enabled = false;
             PlayDeathAnimation();
             GameObject score = GameObject.Find("ScoreManager");
-            int playerScore = score.GetComponent<ScoreTextManager>().score;
-            score.GetComponent<WorldRecordTextManager>().PlayerDiedUpdateScoreIfTheirsWasBetter(playerScore);
+            //int playerScore = score.GetComponent<ScoreTextManager>().score;
+            //score.GetComponent<WorldRecordTextManager>().PlayerDiedUpdateScoreIfTheirsWasBetter(playerScore);
         }
 
         private void PlayDeathAnimation() {
