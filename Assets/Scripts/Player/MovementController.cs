@@ -1,7 +1,6 @@
 using UnityEngine;
 
-namespace TumblingTectonics.Player
-{
+namespace TumblingTectonics.Player {
     public class MovementController : MonoBehaviour {
 
         [SerializeField] private float movementSpeed = 5f;
@@ -35,7 +34,6 @@ namespace TumblingTectonics.Player
 
         private void Start() {
             float slopePrefabZScale = slopePrefab.transform.localScale.z;
-            Debug.Log(string.Format("slope prefab z scale: {0}", slopePrefabZScale));
             maxDistanceAwayFromCenterOnEitherSide = slopePrefabZScale / 2f;
             maxZValueSoFar = gameObject.transform.position.z;
         }
@@ -45,8 +43,8 @@ namespace TumblingTectonics.Player
             if (currentZPos > maxZValueSoFar) {
                 maxZValueSoFar = currentZPos;
             }
-            float horizontalInput = Input.GetAxis("Horizontal");
-            float verticalInput = Input.GetAxis("Vertical");
+            float horizontalInput = Input.GetAxisRaw("Horizontal");
+            float verticalInput = Input.GetAxisRaw("Vertical");
 
             float moveAmount = Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput);
             moveAmount = Mathf.Clamp01(moveAmount); // clamping move amount to be between 0-1 for player animation
@@ -55,7 +53,10 @@ namespace TumblingTectonics.Player
             Vector3 movementInput = (new Vector3(horizontalInput, 0, verticalInput)).normalized;
 
             // move the movement input in the camera's direction
-            Vector3 moveDirection = cameraController.PlanarRotationOfCamera * movementInput;
+            // previously it fetched the camera's planar rotation but that had problems with my bounds checking
+            // logic where it caused players upon hitting the edge of the map to rotate their model completely
+            // in non-natural ways so I just do the identity quaternion. It works so.
+            Vector3 moveDirection = Quaternion.identity * movementInput;
             ConstrainMovementToWithinBounds(ref moveDirection);
 
             GroundCheck();
@@ -67,7 +68,8 @@ namespace TumblingTectonics.Player
             }
 
             Vector3 velocity = moveDirection * movementSpeed;
-            velocity.y = ySpeed;
+            velocity = AdjustVelocityToSlope(velocity);
+            velocity.y += ySpeed;
             characterController.Move(velocity * Time.deltaTime);
 
             if (moveAmount > 0) {
@@ -94,6 +96,22 @@ namespace TumblingTectonics.Player
             if (gameObject.transform.position.z < maxZValueSoFar - howFarPlayerCanBacktrack) {
                 moveDirection.z = 0.05f;
             }
+        }
+
+        private Vector3 AdjustVelocityToSlope(Vector3 originalVelocity) {
+            Ray ray = new Ray(transform.position, Vector3.down);
+            // detecting stuff if this ray collides with anything, we are getting the direction the ground is facing
+            // the 0.2 detects collisions only close to the character
+            if (Physics.Raycast(ray, out RaycastHit hitInfo, 0.2f)) {
+                Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
+                Vector3 adjustedVelocity = slopeRotation * originalVelocity;
+
+                bool weAreGoingDown = adjustedVelocity.y < 0;
+                if (weAreGoingDown) {
+                    return adjustedVelocity;
+                }
+            }
+            return originalVelocity;
         }
 
         private void GroundCheck() {

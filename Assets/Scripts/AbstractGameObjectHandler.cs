@@ -1,9 +1,8 @@
-using TumblingTectonics.GameManager;
 using UnityEngine;
 
 namespace TumblingTectonics {
     public abstract class AbstractGameObjectHandler : MonoBehaviour {
-        // TODO will this interface be attached to anything even?
+        // it seems this is used by its subclasses which makes sense ig
         [SerializeField] private float howFarBelowPlayerToDeleteIt = 50f;
 
         public void Update() {
@@ -14,7 +13,6 @@ namespace TumblingTectonics {
             float cameraYPosition = Camera.main.transform.position.y;
             if (this.transform.position.y < cameraYPosition - howFarBelowPlayerToDeleteIt) {
                 Destroy(this.gameObject);
-                Debug.Log(string.Format("Destored gameObject with name: {0}", this.gameObject.name));
             }
         }
 

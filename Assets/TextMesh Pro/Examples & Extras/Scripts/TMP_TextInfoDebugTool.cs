@@ -11,6 +11,8 @@ namespace TMPro.Examples
     {
         // Since this script is used for debugging, we exclude it from builds.
         // TODO: Rework this script to make it into an editor utility.
+        // brooo what are the text mesh pro jokers todos doing in my scripts folder ..
+        // (I did search in the scripts folder for all todos and i wasnt expecting someone elses todo to be here lol)
         #if UNITY_EDITOR
         public bool ShowCharacters;
         public bool ShowWords;
