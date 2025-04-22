@@ -9,8 +9,8 @@ namespace TumblingTectonics.GameManager {
 
         private void Start() {
             cursorManagerScript.GetComponent<CursorManager>().DisableCursor();
-            //GameObject score = GameObject.Find("ScoreManager");
-            //score.GetComponent<WorldRecordTextManager>().SetWorldRecordScoreText();
+            GameObject score = GameObject.Find("ScoreManager");
+            score.GetComponent<HighScoreTextManager>().SetHighScoreText();
         }
     }
 }

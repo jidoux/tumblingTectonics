@@ -21,9 +21,6 @@ namespace TumblingTectonics.GameManager {
             // disabling the players collider so that the boulder's dont bounce off the corpse
             player.GetComponent<CharacterController>().enabled = false;
             PlayDeathAnimation();
-            GameObject score = GameObject.Find("ScoreManager");
-            //int playerScore = score.GetComponent<ScoreTextManager>().score;
-            //score.GetComponent<WorldRecordTextManager>().PlayerDiedUpdateScoreIfTheirsWasBetter(playerScore);
         }
 
         private void PlayDeathAnimation() {

@@ -1,7 +1,6 @@
 using UnityEngine;
 
-namespace TumblingTectonics.Player
-{
+namespace TumblingTectonics.Player {
     public class MovementController : MonoBehaviour {
 
         [SerializeField] private float movementSpeed = 5f;
@@ -44,8 +43,8 @@ namespace TumblingTectonics.Player
             if (currentZPos > maxZValueSoFar) {
                 maxZValueSoFar = currentZPos;
             }
-            float horizontalInput = Input.GetAxis("Horizontal");
-            float verticalInput = Input.GetAxis("Vertical");
+            float horizontalInput = Input.GetAxisRaw("Horizontal");
+            float verticalInput = Input.GetAxisRaw("Vertical");
 
             float moveAmount = Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput);
             moveAmount = Mathf.Clamp01(moveAmount); // clamping move amount to be between 0-1 for player animation

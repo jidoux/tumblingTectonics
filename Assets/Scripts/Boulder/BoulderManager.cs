@@ -23,6 +23,9 @@ namespace TumblingTectonics.Boulder {
                 GameEndBehavior gameEndBehaviorScript = Camera.main.GetComponent<GameEndBehavior>();
                 gameEndBehaviorScript.EndGame();
             }
+            else if (gameObject.GetComponent<Renderer>().enabled != true) {
+                gameObject.GetComponent<Renderer>().enabled = true;
+            }
         }
     }
 }
