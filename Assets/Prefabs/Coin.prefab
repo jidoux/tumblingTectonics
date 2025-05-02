@@ -175,6 +175,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   howFarBelowPlayerToDeleteIt: 50
+  coinPickupSound: {fileID: 8300000, guid: 016872b230eea7f4a997f0da6cfeb237, type: 3}
+  coinPickupVolume: 0.1
 --- !u!114 &-2325605742599853821
 MonoBehaviour:
   m_ObjectHideFlags: 0

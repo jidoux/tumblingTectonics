@@ -10,8 +10,10 @@ namespace TumblingTectonics.Boulder {
         // using this just to keep the hierarchy cleaner keeping all the boulders contained within 1 gameObject
         [SerializeField] private GameObject boulderContainer;
         [SerializeField] private GameObject scoreManager; // used to scale according to score
-        [SerializeField] private float boulderSpawnScaleFactor = 0.05f;
-        [SerializeField] private float boulderSpeedScaleFactor = 0.009f;
+        // the below comments pertaining to spawn and speed scale factor may change depending on future
+        // spawning or speed logic, so they may be presently outdated
+        [SerializeField] private float boulderSpawnScaleFactor = 0.009f; // with 0.009, the spawn rate caps at 100 currently
+        [SerializeField] private float boulderSpeedScaleFactor = 0.009f; // with 0.009, it takes 389 for it to guarantee reach max difficulty
         int score = 0;
 
         private void Awake() {

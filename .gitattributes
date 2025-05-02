@@ -3,3 +3,4 @@
 *.bundle filter=lfs diff=lfs merge=lfs -text
 *.so filter=lfs diff=lfs merge=lfs -text
 /connectwebgl.zip filter=lfs diff=lfs merge=lfs -text
+/WebGL[[:space:]]Builds/Build/WebGL[[:space:]]Builds.data.br filter=lfs diff=lfs merge=lfs -text
